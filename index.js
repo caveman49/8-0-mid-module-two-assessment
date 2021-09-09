@@ -148,7 +148,15 @@ function filterByGenre(movies, genre) {
       }
     ];
  */
-function getAllMoviesReleasedAtOrBeforeYear() {}
+function getAllMoviesReleasedAtOrBeforeYear(movies, year) {
+  if (!movies.length) {
+    throw "No movies found...";
+  }
+  const result = movies.filter(
+    (movie) => Number(movie.released.slice(-4)) <= year
+  );
+  return result;
+}
 
 /**
  * getRottenTomatoesScoreByMovie()
@@ -174,7 +182,9 @@ function getAllMoviesReleasedAtOrBeforeYear() {}
       { "James and the Giant Peach": "91%" },
     ];
  */
-function getRottenTomatoesScoreByMovie() {}
+function getRottenTomatoesScoreByMovie(movies) {
+  
+}
 
 // Do not change anything below this line.
 module.exports = {
