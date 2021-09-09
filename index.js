@@ -56,14 +56,13 @@ function getAllMovieTitles(movies) {
  *  checkIfAnyMovieHasRating(movies, "R");
  *  //> false
  */
-function checkIfAnyMovieHasRating(movies, rating="G") {
+function checkIfAnyMovieHasRating(movies, rating = "G") {
   if (!movies.length) {
     throw "No movies found...";
   }
-  const someRating = movies.some(movie => movie.rated === rating)
-  return someRating
+  const someRating = movies.some((movie) => movie.rated === rating);
+  return someRating;
 }
-
 
 /**
  * findById()
@@ -183,7 +182,15 @@ function getAllMoviesReleasedAtOrBeforeYear(movies, year) {
     ];
  */
 function getRottenTomatoesScoreByMovie(movies) {
-  
+  if (!movies.length) {
+    throw "No movies found...";
+  }
+  const scoreByMovie = movies
+    .map(movie => movie["ratings"])
+    .find((movie) => {
+      movie.source === "Rotten Tomatoes";
+    });
+  return scoreByMovie;
 }
 
 // Do not change anything below this line.
